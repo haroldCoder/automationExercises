@@ -2,16 +2,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
+@RunWith(JUnit4.class)
 public class App extends Tests {
     WebDriver driver;
 
@@ -36,7 +38,7 @@ public class App extends Tests {
     @Test
     public void HomeVisiblity() {
         WebElement header = this.driver.findElement(By.id("header"));
-        junit.framework.Assert.assertTrue(header.isDisplayed());
+        Assert.assertTrue(header.isDisplayed());
     }
 
     public void clicksiginup() {
@@ -47,11 +49,16 @@ public class App extends Tests {
     }
 
     public static void main(String[] args) throws Exception {
-        
-        Test2 test = new Test4();
+        Test6 test = new Test6();
+        test.gotToHome();
     }
 
     @Test
+    public void  VerifySignupForm(){
+        WebElement div = this.driver.findElement(By.xpath("//div[contains(@class, 'signup-form')]"));
+        Assert.assertTrue(div.isDisplayed());
+    }
+    
     // override sobre escribe el metodo(basicamente es utilizar el metodo en cualquier otra clase q la necesitemos
     //instanciandolo con la misma funcionalidad y pudiendo cambiar la informacion)
     @Override
@@ -59,8 +66,7 @@ public class App extends Tests {
 
         clicksiginup();
 
-        WebElement div = this.driver.findElement(By.xpath("//div[contains(@class, 'signup-form')]"));
-        junit.framework.Assert.assertTrue(div.isDisplayed());
+        
 
         String[] charcs = new String[] { "A", "B", "C", "D", "F", "G", "H", "I", "W", "Q", "V", "B", "Z", "T", "U", "P",
                 "@", "3", "4", "5", "7", "$", "8", "1", "2", "3", "4", "6", "9", "#" };
