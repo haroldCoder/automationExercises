@@ -49,8 +49,8 @@ public class App extends Tests {
     }
 
     public static void main(String[] args) throws Exception {
-        Test6 test = new Test6();
-        test.gotToHome();
+        Test10 tst = new Test10();
+        tst.NavigateFooter();
     }
 
     @Test
