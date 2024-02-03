@@ -49,8 +49,8 @@ public class App extends Tests {
     }
 
     public static void main(String[] args) throws Exception {
-        Test10 tst = new Test10();
-        tst.NavigateFooter();
+        Test12 tst = new Test12();
+        tst.GotoCart();
     }
 
     @Test
