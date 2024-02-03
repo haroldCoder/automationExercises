@@ -20,10 +20,9 @@ public class App extends Tests {
     public App() {
         System.setProperty("webdriver.chrome.driver", Credentials.driver);
 
-        ChromeOptions options = new ChromeOptions();
+        ChromeOptions options = new ChromeOptions().setBinary("c:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe");
         // Desactiva las extensiones
         options.addArguments("--disable-notifications");
-        options.addArguments("--app=http://www.google.com");
         options.setExperimentalOption("prefs", new HashMap<String, Object>() {
             {
                 put("autofill.profile_enabled", false);
@@ -50,7 +49,7 @@ public class App extends Tests {
 
     public static void main(String[] args) throws Exception {
         Test13 tst = new Test13();
-        tst.viewProduct(1);
+        tst.AddProduct();
     }
 
     @Test
